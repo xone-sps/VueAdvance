@@ -1,6 +1,3 @@
-import User from "@/store/models/User";
-import Role from "@/store/models/auth/Role";
-import Permission from "@/store/models/auth/Permission";
 export default function Credential(){
     this.token_type = "Bearer";
     this.expires_in = 0;
@@ -17,8 +14,8 @@ export default function Credential(){
         this.expires_in = json.expires_in;
         this.access_token = json.access_token;
         this.refresh_token = json.refresh_token;
-        this.user = User.fromJSON(json.user);
-        this.user_roles = Role.fromJSON(json.user_roles);
-        this.user_permission_roles = Permission.fromJSON(json.permission_roles);
+        this.user = json.user;
+        this.user_roles = json.user_roles;
+        this.user_permission_roles = json.permission_roles;
     }
 }

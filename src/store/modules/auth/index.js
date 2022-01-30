@@ -43,21 +43,9 @@ export default  function create(){
                }
            );
             state.credential = credential;
-           // state.credential =new Credential.fromJSON({...payload,
-           //     user:{
-           //         id:authUser.userId,
-           //         email: authUser.userEmail,
-           //         name: authUser.userName,
-           //         profile_url: authUser.userProfile,
-           //         notification_token:payload.payload,
-           //     }
-           //
-           // })
+           localStorage.setItem(ACCESS_TOKEN_KEY, state.credential.access_token);
        },
             ///Set Local storage
-           setLocalStorage(){
-               localStorage.setItem(ACCESS_TOKEN_KEY, this.state.credential.access_token)
-           },
             removeToken(){
                 localStorage.removeItem(ACCESS_TOKEN_KEY)
             }
